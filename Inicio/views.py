@@ -18,8 +18,8 @@ def index(request):
                 user.is_active=True
             user.set_password(request.POST.get('password1'))
             user.save()
-            mensaje = render_to_string('confirmacion.html', {'usuario': user.email}).decode('utf-8').strip()
-            enviarEmail(destinatarios=[user.email],asunto="Gracias por tu registro",mensaje=mensaje,is_html=True)
+            mensaje = render_to_string('confirmacion.html', {'usuario': str(user.email)})
+            enviarEmail(destinatarios=[user.email], asunto="Gracias por tu registro", mensaje=mensaje, is_html=True)
             return HttpResponseRedirect("/success/?user="+user.username)
 
     return render(request,'index.html')
@@ -31,7 +31,6 @@ def registro(request):
     elif request.GET.get('renew'):
         usuario = User.objects.get(username=request.GET.get('renew'))
         mensaje=render_to_string('confirmacion.html', {'usuario':str(usuario.email)})
-        print(mensaje)
         enviarEmail(destinatarios=[usuario.email],asunto="Gracias por tu registro",mensaje=mensaje,is_html=True)
     elif request.GET.get('activate'):
         usuario = User.objects.get(username=request.GET.get('activate'))
