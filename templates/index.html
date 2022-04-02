@@ -297,7 +297,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <button type="submit"
+                                    <button type="submit" id="regis"
                                             class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
                                             data-loading-text="Loading...">Registarse
                                     </button>
@@ -1084,6 +1084,19 @@
             }
         })
     </script>
+        <script>
+        $("#password1").attr('disabled','disabled')
+        $("#password1").keyup(function (){
+            if($("#password1").val()===$("#password2").val()){
+                $("#regis").removeAttr('disabled')
+            }
+        })
+        $("#password2").keyup(function (){
+            if($("#password1").val()===$("#password2").val()){
+                ("#regis").removeAttr('disabled')
+            }
+        })
+        </script>
     {% endblock %}
     {% block style %}{% endblock %}
 </div>
