@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block header %}
+<div style="width: 100%; height: 100px"></div>
+{% endblock %}
+{% block main %}
+    <div role="main" class="main" style="min-height: calc(100vh - 393px);">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img width="300" src="{% static 'logo/egess_logo-04.png' %}" alt="Porto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="solid my-5">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <div class="overflow-hidden mb-2">
+                        <h2 class="font-weight-normal text-7 mb-0 appear-animation" data-appear-animation="maskUp">
+                            <strong class="font-weight-extra-bold">Gracias por registrarte</strong></h2>
+                    </div>
+                    <div class="overflow-hidden mb-1">
+                        <p class="lead mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                            Te hemos enviado un email, para poder utilizar los servicios de Egess, es necesario realizar
+                            la confirmación de tu Registro. Si no te llego da click <a href="/success/?renew={% if request.GET.user %}{{ request.GET.user }}{% else %}{{ request.GET.renew }}{% endif %}">aquí</a> <a class="btn btn-primary" href="/">Página principal</a> <a class="btn btn-secondary" href="/">Iniciar Sesión</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="solid my-5">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
