@@ -65,7 +65,7 @@
                         <div class="header-row">
                             <div class="header-logo px-4">
                                 <a href="/">
-                                    <img alt="Grupo EGESS" width="75" src="{% static 'assets/img/logo1.png' %}">
+                                    <img alt="Grupo EGESS" width="75" src="{% static 'logo/egess_logo-04.png' %}">
                                 </a>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                             <li>
                                                 <a class="nav-link" href="#cases" data-hash data-hash-offset="0"
                                                    data-hash-offset-lg="32">
-                                                    Casos de Éxito
+                                                    Misión & Visión
                                                 </a>
                                             </li>
                                             <li>
@@ -178,11 +178,11 @@
                                             data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">
                                             GRUPO EGESS
                                         </h1>
-                                        <p class="text-4 text-color-dark px-md-5 pb-3 mx-md-5 mb-3 appear-animation"
+                                        <p class="text-5 text-color-dark px-md-5 pb-3 mx-md-5 mb-3 appear-animation"
                                            data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">
-                                            Ecosistema de gestión de servicios seguros
+                                            <strong>Ecosistema de gestión de servicios seguros</strong>
                                         </p>
-                                        <a href="#who-we-are"
+                                        <a href="#register"
                                            class="btn btn-gradient custom-btn-effect-1 custom-border-radius-1 d-inline-flex align-items-center font-weight-semibold text-3-5 btn-px-5 btn-py-3 appear-animation"
                                            data-hash data-hash-offset="0" data-hash-offset-lg="32"
                                            data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1600"
@@ -206,11 +206,11 @@
                                             data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">
                                             GRUPO EGESS
                                         </h1>
-                                        <p class="text-4 text-color-dark px-md-5 pb-3 mx-md-5 mb-3 appear-animation"
+                                        <p class="text-5 text-color-dark px-md-5 pb-3 mx-md-5 mb-3 appear-animation"
                                            data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">
-                                            Ecosistema de gestión de servicios seguros
+                                            <strong>Ecosistema de gestión de servicios seguros</strong>
                                         </p>
-                                        <a href="#who-we-are"
+                                        <a href="#register"
                                            class="btn btn-gradient custom-btn-effect-1 custom-border-radius-1 d-inline-flex align-items-center font-weight-semibold text-3-5 btn-px-5 btn-py-3 appear-animation"
                                            data-hash data-hash-offset="0" data-hash-offset-lg="32"
                                            data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1600"
@@ -239,6 +239,70 @@
             </div>
 
         </div>
+
+        <section id="register" class="section section-height-3 bg-transparent border-0 m-0">
+            <div class="container py-4">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
+                        <div class="overflow-hidden">
+                            <h2 class="text-color-primary font-weight-semibold text-3 line-height-7 positive-ls-2 mb-0 appear-animation"
+                                data-appear-animation="maskUp">REGÍSTRATE AQUÍ</h2>
+                        </div>
+                        <p>Completa este sencillo formulario de registro y disfruta de todos los beneficios que Grupo
+                            Egess tiene para tí</p>
+                    </div>
+                    <div class="col-5 col-sm-7 col-md-12 col-lg-6 text-center">
+                        <form action="/register/" id="frmSignIn" method="post" class="needs-validation" novalidate="novalidate">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label text-color-dark text-3">Email address <span
+                                            class="text-color-danger">*</span></label>
+                                    <input type="email" name="email" id="email" value="" class="form-control form-control-lg text-4" required="">
+                                </div>
+                            </div>
+                            <div class="row justify-content-between">
+									<div class="form-group col-md-auto">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" id="es_prestador" name="es_prestador">
+											<label class="form-label custom-control-label cur-pointer text-2" for="es_prestador">¿Eres un prestador?</label>
+										</div>
+									</div>
+								</div>
+                            <div class="row" id="prestador">
+                                <div class="form-group col">
+                                    <label class="form-label text-color-dark text-3">Ingrese Su NIT <span
+                                            class="text-color-danger">*</span></label>
+                                    <input type="text" name="nit" id="nit" value="" class="form-control form-control-lg text-4"
+                                           required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label text-color-dark text-3">Password <span
+                                            class="text-color-danger">*</span></label>
+                                    <input type="password" value="" name="password1" id="password1" class="form-control form-control-lg text-4" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label text-color-dark text-3">Confirmación de Password <span
+                                            class="text-color-danger">*</span></label>
+                                    <input type="password" value="" name="password2" id="password2" class="form-control form-control-lg text-4" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <button type="submit"
+                                            class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
+                                            data-loading-text="Loading...">Registarse
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="who-we-are" class="section section-height-3 bg-transparent border-0 m-0">
             <div class="container py-4">
@@ -285,6 +349,7 @@
                 </div>
             </div>
         </section>
+
 
         <section class="section section-height-3 bg-gradient border-0 m-0 appear-animation"
                  data-appear-animation="fadeIn">
@@ -346,8 +411,10 @@
             <div class="container pt-5 mt-2">
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-xl-5 pe-lg-5 pe-xl-0 pb-lg-5 mb-5 mb-xl-0">
-                        <h2 class="text-color-primary font-weight-semibold text-3 positive-ls-2 mb-0">NUESTROS SERVICIOS</h2>
-                        <h3 class="text-color-dark font-weight-bold text-transform-none text-10 mb-5">Lo que hacemos</h3>
+                        <h2 class="text-color-primary font-weight-semibold text-3 positive-ls-2 mb-0">NUESTROS
+                            SERVICIOS</h2>
+                        <h3 class="text-color-dark font-weight-bold text-transform-none text-10 mb-5">Lo que
+                            hacemos</h3>
                         <div class="pe-5">
                             <div class="d-flex">
                                 <img width="65" height="65"
@@ -416,11 +483,7 @@
                     <div class="col">
                         <div class="overflow-hidden">
                             <h2 class="text-color-primary font-weight-semibold line-height-7 text-3 positive-ls-2 mb-0 appear-animation"
-                                data-appear-animation="maskUp" data-appear-animation-delay="200">PROJECTS</h2>
-                        </div>
-                        <div class="overflow-hidden mb-4">
-                            <h3 class="text-color-dark font-weight-bold text-transform-none line-height-1 text-10 pe-1 mb-0 appear-animation"
-                                data-appear-animation="maskUp" data-appear-animation-delay="400">Cases</h3>
+                                data-appear-animation="maskUp" data-appear-animation-delay="200">MISIÓN & VISIÓN</h2>
                         </div>
                     </div>
                 </div>
@@ -430,76 +493,36 @@
                         <div class="owl-carousel carousel-shadow-1 show-nav-title custom-dots-style-1 dots-dark"
                              data-plugin-options="{'responsive': {'479': {'items': 1}, '768': {'items': 1}, '979': {'items': 2}, '1199': {'items': 2}, '1440': {'items': 2}}, 'margin': 20, 'loop': false, 'dots': true, 'dotsVerticalOffset': '30px', 'nav': false}">
                             <div>
-                                <a href="ajax/portfolio-ajax-project-1.html" class="text-decoration-none"
-                                   data-ajax-on-modal>
-                                    <article>
+                                <article>
                                         <div class="card border-0 border-radius-0 p-1">
                                             <div class="card-body p-3 z-index-1">
                                                 <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
-                                                     src="img/demos/one-page-agency/cases/case-1.jpg" alt="Card Image">
-                                                <p class="text-uppercase text-color-default text-1 mb-1">WEBSITE</p>
+                                                     src="{% static '/logo/mision.jpg' %}" alt="Card Image">
+                                                <p class="text-uppercase text-color-default text-1 mb-1">Misión</p>
                                                 <div class="card-body p-0">
-                                                    <h4 class="card-title text-6 text-color-dark text-color-hover-primary font-weight-bold pb-1 mb-2">
-                                                        Porto Website</h4>
-                                                    <p class="card-text text-3-5 mb-2">Lorem ipsum dolor sit amet,
-                                                        consectetur adipiscing elit. Nunc viverra lorem , consectetur
-                                                        adipiscing elit...</p>
-                                                    <button class="btn btn-link font-weight-semibold text-decoration-none text-2 ps-0 pb-1">
-                                                        VIEW MORE
-                                                    </button>
+                                                    <p class="card-text text-3-5 mb-2">
+                                                        Nuestra Misión es Gestionar la tranquilidad y comodidad de los usuarios a través de un ecosistema seguro y ágil.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </article>
-                                </a>
+                        </article>
                             </div>
                             <div>
-                                <a href="ajax/portfolio-ajax-project-2.html" class="text-decoration-none"
-                                   data-ajax-on-modal>
-                                    <article>
+                                <article>
                                         <div class="card border-0 border-radius-0 p-1">
                                             <div class="card-body p-3 z-index-1">
                                                 <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
-                                                     src="img/demos/one-page-agency/cases/case-2.jpg" alt="Card Image">
-                                                <p class="text-uppercase text-color-default text-1 mb-1">WEBSITE</p>
+                                                     src="{% static 'logo/vision.jpg' %}" alt="Card Image">
+                                                <p class="text-uppercase text-color-default text-1 mb-1">VISIÓN</p>
                                                 <div class="card-body p-0">
-                                                    <h4 class="card-title text-6 text-color-dark text-color-hover-primary font-weight-bold pb-1 mb-2">
-                                                        Porto App</h4>
-                                                    <p class="card-text text-3-5 mb-2">Lorem ipsum dolor sit amet,
-                                                        consectetur adipiscing elit. Nunc viverra lorem , consectetur
-                                                        adipiscing elit...</p>
-                                                    <button class="btn btn-link font-weight-semibold text-decoration-none text-2 ps-0 pb-1">
-                                                        VIEW MORE
-                                                    </button>
+                                                    <p class="card-text text-3-5 mb-2">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores aspernatur incidunt saepe tempore?.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </article>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="ajax/portfolio-ajax-project-3.html" class="text-decoration-none"
-                                   data-ajax-on-modal>
-                                    <article>
-                                        <div class="card border-0 border-radius-0 p-1">
-                                            <div class="card-body p-3 z-index-1">
-                                                <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
-                                                     src="img/demos/one-page-agency/cases/case-1.jpg" alt="Card Image">
-                                                <p class="text-uppercase text-color-default text-1 mb-1">WEBSITE</p>
-                                                <div class="card-body p-0">
-                                                    <h4 class="card-title text-6 text-color-dark text-color-hover-primary font-weight-bold pb-1 mb-2">
-                                                        Porto Website</h4>
-                                                    <p class="card-text text-3-5 mb-2">Lorem ipsum dolor sit amet,
-                                                        consectetur adipiscing elit. Nunc viverra lorem , consectetur
-                                                        adipiscing elit...</p>
-                                                    <button class="btn btn-link font-weight-semibold text-decoration-none text-2 ps-0 pb-1">
-                                                        VIEW MORE
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -762,7 +785,8 @@
                         <div class="col-md-8 col-lg-6">
                             <div class="bg-dark p-5">
                                 <div class="d-flex mt-4 mb-4">
-                                    <img width="40" height="40" src="{% static 'assets/img/demos/one-page-agency/icons/location.svg' %}"
+                                    <img width="40" height="40"
+                                         src="{% static 'assets/img/demos/one-page-agency/icons/location.svg' %}"
                                          alt="" data-icon
                                          data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light mt-1'}"/>
                                     <p class="text-color-light ms-2 mb-0">
@@ -773,7 +797,8 @@
                                     </p>
                                 </div>
                                 <div class="d-flex align-items-center pb-2 mb-4">
-                                    <img width="40" height="40" src="{% static 'assets/img/demos/one-page-agency/icons/phone.svg' %}" alt=""
+                                    <img width="40" height="40"
+                                         src="{% static 'assets/img/demos/one-page-agency/icons/phone.svg' %}" alt=""
                                          data-icon
                                          data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light'}"/>
                                     <a href="tel:1234657890"
@@ -1031,7 +1056,22 @@
         }
 
     </script>
-
+    <script>
+        if($(this).is(':checked')){
+                $("#prestador").show()
+            }
+            else{
+                $("#prestador").hide()
+            }
+        $("#es_prestador").click(function(){
+            if($(this).is(':checked')){
+                $("#prestador").show()
+            }
+            else{
+                $("#prestador").hide()
+            }
+        })
+    </script>
 </div>
 </body>
 </html>
