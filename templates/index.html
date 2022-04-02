@@ -1089,11 +1089,15 @@
         $("#password1").keyup(function (){
             if($("#password1").val()===$("#password2").val()){
                 $("#regis").removeAttr('disabled')
+                $("#password1").attr('is-invalid')
+                $("#password2").attr('is-invalid')
             }
         })
         $("#password2").keyup(function (){
             if($("#password1").val()===$("#password2").val()){
-                ("#regis").removeAttr('disabled')
+                $("#regis").removeAttr('disabled')
+                $("#password1").attr('is-invalid')
+                $("#password2").attr('is-invalid')
             }
         })
         </script>
