@@ -15,7 +15,8 @@ def index(request):
             user.email = request.POST.get('email')
             user.username = request.POST.get('email')
             if request.POST.get('nit'):
-                user.is_active=True
+                user.first_name=request.POST.get('nit')
+            user.is_active=False
             user.set_password(request.POST.get('password1'))
             user.save()
             mensaje = render_to_string('confirmacion.html', {'usuario': str(user.email)})
@@ -35,6 +36,7 @@ def registro(request):
     elif request.GET.get('activate'):
         usuario = User.objects.get(username=request.GET.get('activate'))
         usuario.is_active=True
+        usuario.save()
         return HttpResponse("ok")
     contexto={
         'usuario':usuario
