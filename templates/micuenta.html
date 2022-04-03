@@ -1,4 +1,269 @@
-{%  extends 'index.html' %}
+{% extends 'index.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% block header %}
+    <header id="header" class="header-effect-shrink"
+            data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+        <div class="header-body">
+            <div class="header-container container">
+                <div class="header-row">
+                    <div class="header-column">
+                        <div class="header-row">
+                            <div class="header-logo">
+                                <a href="/" data-hash data-hash-offset="0">
+                                    <img alt="Porto" height="48" data-sticky-width="82" data-sticky-height="48"
+                                         src="{% static 'logo/egess_logo-04.png' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-column justify-content-end">
+                        <div class="header-row">
+                            <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
+                                <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                    <nav class="collapse">
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#iniciarSesion">
+                                                    Mis datos
+                                                </a>
+                                            </li>
+                                            {% if request.user.username %}
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        {{ request.user.username }}
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="/myaccount/" class="dropdown-item">Mi Cuenta</a>
+                                                        </li>
+                                                        <li><a href="/logout/" class="dropdown-item">Cerrar Sesión</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            {% else %}
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle"
+                                                       data-bs-target="#modal-sesion" href="#"
+                                                       data-bs-toggle="modal">
+                                                        Iniciar Sesión
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse"
+                                        data-bs-target=".header-nav-main nav">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {% block main %}
+    <div id="examples" class="container py-2">
+
+        <div class="row">
+            <div class="col-lg-3 order-2 order-lg-1">
+
+                <aside class="sidebar mt-2 mb-5">
+                    <h5 class="font-weight-semi-bold">Mis datos</h5>
+                    <ul class="nav nav-list flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#iniciarSesion" data-bs-toggle="tab" data-hash=""
+                               data-hash-offset="0" data-hash-offset-lg="120" data-hash-delay="500">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicios" data-bs-toggle="tab" data-hash=""
+                               data-hash-offset="0" data-hash-offset-lg="120" data-hash-delay="500">Mis servicios</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="col-lg-9 order-1 order-lg-2">
+                <div class="tab-pane tab-pane-navigation active" id="iniciarSesion">
+                    <h4 class="mb-3">Datos del Inicio de la Sesión</h4>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <form class="form-with-icons" action="" method="POST">
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label class="form-label mb-1 text-2">Email</label>
+                                                <div class="position-relative">
+                                                    <i class="icons icon-envelope text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                                                    <input type="email" value="{{ request.user.email }}"
+                                                           data-msg-required="Por favor ingrese su email."
+                                                           data-msg-email="Ingrese un email válido."
+                                                           maxlength="100" class="form-control text-3 h-auto py-2"
+                                                           name="email" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label class="form-label mb-1 text-2">NIT</label>
+                                                <div class="position-relative">
+                                                    <i class="icons icon-anchor text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                                                    <input type="text" value="{{ request.user.first_name }}"
+                                                           data-msg-required="Ingrese su NIC."
+                                                           maxlength="100" class="form-control text-3 h-auto py-2"
+                                                           name="nic" required="" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label">Password</label>
+                                                <div class="position-relative">
+                                                    <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
+                                                    <input type="password"
+                                                           maxlength="100" class="form-control text-3 h-auto py-2"
+                                                           data-msg-required="Contraseñas no coinciden."
+                                                           data-msg-password="Contraseñas no coinciden."
+                                                           name="password1" id="password1"
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label">Confirmar Password</label>
+                                                <div class="position-relative">
+                                                    <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
+                                                    <input type="password"
+                                                           maxlength="100" class="form-control text-3 h-auto py-2"
+                                                           name="password2" id="password2"
+                                                           data-msg-required="Contraseñas no coinciden."
+                                                           data-msg-password="Contraseñas no coinciden."
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <button type="submit" id="regis" class="btn btn-primary mb-2">Registrar
+                                                    Cambios
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {% csrf_token %}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane tab-pane-navigation active" id="servicios">
+                    <h4 class="mb-3">Mis Servicios</h4>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <table class="table table-bordered" id="tabla">
+                                    <thead>
+                                    <th>NIT</th>
+                                    <th>Nombre</th>
+                                    <th>Dirección</th>
+                                    <th>Opciones</th>
+                                    </thead>
+                                    <tbody>
+                                    {% for ip in ips %}
+                                        <tr>
+                                            <td>{{ ip.sede.nit }}</td>
+                                            <td>{{ ip.sede }}</td>
+                                            <td>{{ ip }}</td>
+                                            <td style="text-align: center">
+                                                {% if ip.es_usada %}
+                                                    <a href="" class="btn btn-success" title="Activo"><i
+                                                            class="icon icon-check"></i></a>
+                                                    <a href="" class="btn btn-danger" title="Desactivar"><i
+                                                            class="icon icon-close"></i></a>
+                                                {% else %}
+                                                    <a href="" class="btn btn-primary" title="Activar"><i
+                                                            class="icon icon-check"></i></a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tabla').DataTable(
+                {
+                    "language": {
+                        "lengthMenu": "Ver _MENU_ Registros",
+                        "zeroRecords": "No hay registros",
+                        "info": "Viendo _PAGE_ de un total de  _PAGES_ Páginas",
+                        "infoEmpty": "No records available",
+                        "infoFiltered": "(Filtrado de _MAX_ un total de registros)"
+                    }
+                }
+            );
+        });
+        $("#password1").keyup(function () {
+            if ($("#password1").val() != $("#password2").val()) {
+                $("#password1").attr('aria-invalid', "true")
+                $("#password2").attr('aria-invalid', "true")
+                $("#password1").addClass('error')
+                $("#password2").addClass('error')
+                $("#password1").addClass('valid')
+                $("#password2").addClass('valid')
+                $("#password2").attr('required')
+            } else {
+                $("#password1").attr('aria-invalid', "false")
+                $("#password2").attr('aria-invalid', "false")
+                $("#password1").removeClass('error')
+                $("#password2").removeClass('error')
+                $("#password1").addClass('valid')
+                $("#password2").addClass('valid')
+            }
+            $("#regis").removeAttr('disabled')
+        })
+        $("#password2").keyup(function () {
+            if ($("#password1").val() != $("#password2").val()) {
+                $("#password1").attr('aria-invalid', "true")
+                $("#password2").attr('aria-invalid', "true")
+                $("#password1").addClass('error')
+                $("#password2").addClass('error')
+                $("#password1").addClass('valid')
+                $("#password2").addClass('valid')
+                $("#password1").attr('required')
+            } else {
+                $("#password1").attr('aria-invalid', "false")
+                $("#password2").attr('aria-invalid', "false")
+                $("#password1").removeClass('error')
+                $("#password2").removeClass('error')
+                $("#password1").addClass('valid')
+                $("#password2").addClass('valid')
+            }
+            $("#regis").removeAttr('disabled')
+        })
+    </script>
+{% endblock %}
+{% block footer %}
 
 {% endblock %}

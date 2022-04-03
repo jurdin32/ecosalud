@@ -8,6 +8,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.template.loader import render_to_string
 
+from Prestadores.models import DetalleSede
 from ecosalud.envio_email import enviarEmail
 
 def index(request):
@@ -18,6 +19,7 @@ def index(request):
             user.username = request.POST.get('email')
             if request.POST.get('nit'):
                 user.first_name=request.POST.get('nit')
+                user.is_staff=True
             user.is_active=False
             user.set_password(request.POST.get('password1'))
             user.save()
@@ -62,9 +64,18 @@ def registro(request):
     }
     return render(request,'registro_exitoso.html',contexto)
 
-
+@login_required(login_url="/")
 def micuenta(request):
+    if request.POST:
+        print(request.POST)
+        user=request.user
+        if request.POST.get('password1')==request.POST.get('password2') and request.POST.get('password2') and request.POST.get('password1'):
+            user.set_password(request.POST.get('password2'))
+        user.email=request.POST.get('email')
+        user.username=request.POST.get('email')
+        user.save()
+        return HttpResponseRedirect('/')
     contexto={
-
+        'ips':DetalleSede.objects.filter(sede__nit=request.user.first_name)
     }
     return render(request,'micuenta.html',contexto)
