@@ -41,10 +41,10 @@
     <link rel="stylesheet" href="{% static 'assets/css/theme-shop.css' %}">
 
     <!-- Demo CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/demos/demo-one-page-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/circle-flip-slideshow/css/component.css' %}">
 
     <!-- Skin CSS -->
-    <link id="skinCSS" rel="stylesheet" href="{% static 'assets/css/skins/skin-one-page-agency.css' %}">
+    <link id="skinCSS" rel="stylesheet" href="{% static 'assets/css/skins/skin-landing.css' %}">
 
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
@@ -53,96 +53,90 @@
     <script src="{% static 'assets/vendor/modernizr/modernizr.min.js' %}"></script>
 
 </head>
-<body data-plugin-scroll-spy data-plugin-options="{'target': '.wrapper-spy'}">
-
-<div class="body">
-    {% block header %}
-    <header id="header"
-            data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAtElement': '#header', 'stickySetTop': '0', 'stickyChangeLogo': false}">
+<body data-plugin-page-transition>
+{% block header %}
+    <header id="header" class="header-effect-shrink"
+            data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
         <div class="header-body">
-            <div class="header-container container-fluid px-0">
+            <div class="header-container container">
                 <div class="header-row">
-                    <div class="header-column w-lg-25pct">
+                    <div class="header-column">
                         <div class="header-row">
-                            <div class="header-logo px-4">
-                                <a href="/">
-                                    <img alt="Grupo EGESS" width="75" src="{% static 'logo/egess_logo-04.png' %}">
+                            <div class="header-logo">
+                                <a href="#home" data-hash data-hash-offset="0">
+                                    <img alt="Porto" height="48" data-sticky-width="82" data-sticky-height="48"
+                                         src="{% static 'logo/egess_logo-04.png' %}">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="header-column justify-content-center w-lg-100pct">
+                    <div class="header-column justify-content-end">
                         <div class="header-row">
-                            <div class="header-nav justify-content-center">
-                                <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
-                                    <nav class="wrapper-spy collapse">
+                            <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
+                                <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                    <nav class="collapse">
                                         <ul class="nav nav-pills" id="mainNav">
-                                            <li>
-                                                <a class="nav-link active" href="#home" data-hash>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#home">
                                                     Inicio
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="nav-link" href="#who-we-are" data-hash data-hash-offset="0"
-                                                   data-hash-offset-lg="32">
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#who-we-are">
                                                     A cerca de Nosotros
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="nav-link" href="#what-we-do" data-hash data-hash-offset="0"
-                                                   data-hash-offset-lg="32">
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#what-we-do">
                                                     Lo que hacemos
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="nav-link" href="#cases" data-hash data-hash-offset="0"
-                                                   data-hash-offset-lg="32">
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#cases">
                                                     Misión & Visión
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="nav-link" href="#our-team" data-hash data-hash-offset="0"
-                                                   data-hash-offset-lg="32">
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#our-team">
                                                     Nuestro Equipo
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="nav-link" href="#googlemaps" data-hash>
-                                                    Contactanos
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
+                                                   href="#googlemaps">
+                                                    Contacto
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" data-bs-target="#modal-sesion" href="#"
+                                                   data-bs-toggle="modal">
+                                                    Iniciar Sesión
                                                 </a>
                                             </li>
                                         </ul>
                                     </nav>
                                 </div>
+                                <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse"
+                                        data-bs-target=".header-nav-main nav">
+                                    <i class="fas fa-bars"></i>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="header-column w-100pct w-lg-25pct justify-content-end">
-                        <div class="header-row px-4">
-                            <div class="d-none d-sm-flex align-items-center">
-                                <img width="30" height="30"
-                                     src="{% static 'assets/img/demos/one-page-agency/icons/phone.svg' %}" alt=""
-                                     data-icon
-                                     data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light me-1'}"/>
-                                <a href="tel:1234567890"
-                                   class="text-color-light font-weight-semibold opacity-hover-9 text-decoration-none">(800)
-                                    123-4567</a>
-                            </div>
-                            <button class="btn header-btn-collapse-nav btn-gradient" data-bs-toggle="collapse"
-                                    data-bs-target=".header-nav-main nav">
-                                <i class="fas fa-bars"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    {% endblock %}
+{% endblock %}
 
-    {% block main %}
+{% block main %}
     <div role="main" class="main">
-        
+
         <div class="position-relative">
             <div class="d-none d-sm-block position-absolute top-50pct transform3dy-n50 right-15 z-index-3 pe-3">
                 <ul class="d-flex flex-column social-icons social-icons-clean social-icons-icon-light social-icons-medium">
@@ -256,28 +250,33 @@
                             Egess tiene para tí</p>
                     </div>
                     <div class="col-5 col-sm-7 col-md-12 col-lg-6 text-center">
-                        <form action="?register=ok" id="frmSignIn" method="post" class="needs-validation" novalidate="novalidate">
-                           {% csrf_token %}
+                        <form action="?register=ok" id="frmSignIn" method="post" class="needs-validation"
+                              novalidate="novalidate">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="form-group col">
                                     <label class="form-label text-color-dark text-3">Email address <span
                                             class="text-color-danger">*</span></label>
-                                    <input type="email" name="email" id="email" value="" class="form-control form-control-lg text-4" required="">
+                                    <input type="email" name="email" id="email" value=""
+                                           class="form-control form-control-lg text-4" required="">
                                 </div>
                             </div>
                             <div class="row justify-content-between">
-									<div class="form-group col-md-auto">
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="es_prestador" name="es_prestador">
-											<label class="form-label custom-control-label cur-pointer text-2" for="es_prestador">¿Eres un prestador?</label>
-										</div>
-									</div>
-								</div>
+                                <div class="form-group col-md-auto">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="es_prestador"
+                                               name="es_prestador">
+                                        <label class="form-label custom-control-label cur-pointer text-2"
+                                               for="es_prestador">¿Eres un prestador?</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row" id="prestador">
                                 <div class="form-group col">
                                     <label class="form-label text-color-dark text-3">Ingrese Su NIT <span
                                             class="text-color-danger">*</span></label>
-                                    <input type="text" name="nit" id="nit" value="" class="form-control form-control-lg text-4"
+                                    <input type="text" name="nit" id="nit" value=""
+                                           class="form-control form-control-lg text-4"
                                            required="">
                                 </div>
                             </div>
@@ -285,14 +284,16 @@
                                 <div class="form-group col">
                                     <label class="form-label text-color-dark text-3">Password <span
                                             class="text-color-danger">*</span></label>
-                                    <input type="password" value="" name="password1" id="password1" class="form-control form-control-lg text-4" required="">
+                                    <input type="password" value="" name="password1" id="password1"
+                                           class="form-control form-control-lg text-4" required="">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
                                     <label class="form-label text-color-dark text-3">Confirmación de Password <span
                                             class="text-color-danger">*</span></label>
-                                    <input type="password" value="" name="password2" id="password2" class="form-control form-control-lg text-4" required="">
+                                    <input type="password" value="" name="password2" id="password2"
+                                           class="form-control form-control-lg text-4" required="">
                                 </div>
                             </div>
                             <div class="row">
@@ -499,35 +500,37 @@
                              data-plugin-options="{'responsive': {'479': {'items': 1}, '768': {'items': 1}, '979': {'items': 2}, '1199': {'items': 2}, '1440': {'items': 2}}, 'margin': 20, 'loop': false, 'dots': true, 'dotsVerticalOffset': '30px', 'nav': false}">
                             <div>
                                 <article>
-                                        <div class="card border-0 border-radius-0 p-1">
-                                            <div class="card-body p-3 z-index-1">
-                                                <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
-                                                     src="{% static '/logo/mision.jpg' %}" alt="Card Image">
-                                                <p class="text-uppercase text-color-default text-1 mb-1">Misión</p>
-                                                <div class="card-body p-0">
-                                                    <p class="card-text text-3-5 mb-2">
-                                                        Nuestra Misión es Gestionar la tranquilidad y comodidad de los usuarios a través de un ecosistema seguro y ágil.
-                                                    </p>
-                                                </div>
+                                    <div class="card border-0 border-radius-0 p-1">
+                                        <div class="card-body p-3 z-index-1">
+                                            <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
+                                                 src="{% static '/logo/mision.jpg' %}" alt="Card Image">
+                                            <p class="text-uppercase text-color-default text-1 mb-1">Misión</p>
+                                            <div class="card-body p-0">
+                                                <p class="card-text text-3-5 mb-2">
+                                                    Nuestra Misión es Gestionar la tranquilidad y comodidad de los
+                                                    usuarios a través de un ecosistema seguro y ágil.
+                                                </p>
                                             </div>
                                         </div>
-                        </article>
+                                    </div>
+                                </article>
                             </div>
                             <div>
                                 <article>
-                                        <div class="card border-0 border-radius-0 p-1">
-                                            <div class="card-body p-3 z-index-1">
-                                                <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
-                                                     src="{% static 'logo/vision.jpg' %}" alt="Card Image">
-                                                <p class="text-uppercase text-color-default text-1 mb-1">VISIÓN</p>
-                                                <div class="card-body p-0">
-                                                    <p class="card-text text-3-5 mb-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores aspernatur incidunt saepe tempore?.
-                                                    </p>
-                                                </div>
+                                    <div class="card border-0 border-radius-0 p-1">
+                                        <div class="card-body p-3 z-index-1">
+                                            <img class="card-img-top border-radius-0 opacity-hover-8 mb-2"
+                                                 src="{% static 'logo/vision.jpg' %}" alt="Card Image">
+                                            <p class="text-uppercase text-color-default text-1 mb-1">VISIÓN</p>
+                                            <div class="card-body p-0">
+                                                <p class="card-text text-3-5 mb-2">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
+                                                    asperiores aspernatur incidunt saepe tempore?.
+                                                </p>
                                             </div>
                                         </div>
-                                    </article>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
@@ -859,10 +862,54 @@
         </div>
 
     </div>
-    {% endblock %}
 
-    {% block footer %}
-     <footer id="footer" class="border-0 m-0 p-0">
+    <div class="modal fade" id="modal-sesion" tabindex="-1" aria-labelledby="defaultModalLabel" aria-hidden="true"
+         style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Iniciar Sesión</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form action="/session/" id="frmSignIn" method="post" class="needs-validation" novalidate="novalidate">
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-3">Correo Electrónico <span
+                                        class="text-color-danger">*</span></label>
+                                <input type="text" value="" class="form-control form-control-lg text-4" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-3">Password <span
+                                        class="text-color-danger">*</span></label>
+                                <input type="password" value="" class="form-control form-control-lg text-4" required="">
+                            </div>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="form-group col-md-auto">
+                                <a class="text-decoration-none text-color-dark text-color-hover-primary font-weight-semibold text-2"
+                                   href="/forgot_password/">Olvide mi contraseña</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <button type="submit"
+                                        class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
+                                        data-loading-text="Loading...">Iniciar Sesión
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer id="footer" class="border-0 m-0 p-0">
         <div class="footer-copyright bg-color-light py-5">
             <div class="container">
                 <div class="row align-items-center justify-content-center justify-content-md-between">
@@ -901,208 +948,206 @@
             </div>
         </div>
     </footer>
-    {% endblock %}
+{% endblock %}
 
 
-    <!-- Vendor -->
-    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.appear/jquery.appear.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.cookie/jquery.cookie.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.validation/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery.gmap/jquery.gmap.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/lazysizes/lazysizes.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/isotope/jquery.isotope.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/vide/jquery.vide.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/vivus/vivus.min.js' %}"></script>
+<!-- Vendor -->
+<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.appear/jquery.appear.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.cookie/jquery.cookie.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.validation/jquery.validate.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.gmap/jquery.gmap.min.js' %}"></script>
+<script src="{% static 'assets/vendor/lazysizes/lazysizes.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope/jquery.isotope.min.js' %}"></script>
+<script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'assets/vendor/vide/jquery.vide.min.js' %}"></script>
+<script src="{% static 'assets/vendor/vivus/vivus.min.js' %}"></script>
 
-    <!-- Theme Base, Components and Settings -->
-    <script src="{% static 'assets/js/theme.js' %}"></script>
+<!-- Theme Base, Components and Settings -->
+<script src="{% static 'assets/js/theme.js' %}"></script>
 
-    <!-- Current Page Vendor and Views -->
-    <script src="{% static 'assets/js/views/view.contact.js' %}"></script>
+<!-- Current Page Vendor and Views -->
+<script src="{% static 'assets/js/views/view.contact.js' %}"></script>
 
-    <!-- Demo -->
-    <script src="{% static 'assets/js/demos/demo-one-page-agency.js' %}"></script>
+<!-- Demo -->
+<script src="{% static 'assets/js/demos/demo-one-page-agency.js' %}"></script>
 
-    <!-- Theme Custom -->
-    <script src="{% static 'assets/js/custom.js' %}"></script>
+<!-- Theme Custom -->
+<script src="{% static 'assets/js/custom.js' %}"></script>
 
-    <!-- Theme Initialization Files -->
-    <script src="{% static 'assets/js/theme.init.js' %}"></script>
+<!-- Theme Initialization Files -->
+<script src="{% static 'assets/js/theme.init.js' %}"></script>
 
 
 
-    {% block script %}
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgwSp2rHZKriSkJd02riH8YvD56wMG8Oo"></script>
-        <script>
+{% block script %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgwSp2rHZKriSkJd02riH8YvD56wMG8Oo"></script>
+    <script>
 
-            /*
-            Map Settings
+        /*
+        Map Settings
 
-                Find the Latitude and Longitude of your address:
-                    - https://www.latlong.net/
-                    - http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
+            Find the Latitude and Longitude of your address:
+                - https://www.latlong.net/
+                - http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
 
-            */
+        */
 
-            function initializeGoogleMaps() {
-                // Map Markers
-                var mapMarkers = [{
-                    address: "New York, NY 10017",
-                    html: "<strong>Porto One Page Agency</strong><br>New York, NY 10017",
-                    icon: {
-                        image: "{% static 'assets/img/pin.png' %}",
-                        iconsize: [26, 46],
-                        iconanchor: [12, 46]
-                    },
-                    popup: true
-                }];
+        function initializeGoogleMaps() {
+            // Map Markers
+            var mapMarkers = [{
+                address: "New York, NY 10017",
+                html: "<strong>Porto One Page Agency</strong><br>New York, NY 10017",
+                icon: {
+                    image: "{% static 'assets/img/pin.png' %}",
+                    iconsize: [26, 46],
+                    iconanchor: [12, 46]
+                },
+                popup: true
+            }];
 
-                // Map Initial Location
-                var initLatitude = -3.266960;
-                var initLongitude = -79.950089;
+            // Map Initial Location
+            var initLatitude = -3.266960;
+            var initLongitude = -79.950089;
 
-                // Map Extended Settings
-                var mapSettings = {
-                    controls: {
-                        draggable: (($.browser.mobile) ? false : true),
-                        panControl: true,
-                        zoomControl: true,
-                        mapTypeControl: true,
-                        scaleControl: true,
-                        streetViewControl: true,
-                        overviewMapControl: true
-                    },
-                    scrollwheel: false,
-                    markers: mapMarkers,
-                    latitude: initLatitude,
-                    longitude: initLongitude,
-                    zoom: 16
-                };
+            // Map Extended Settings
+            var mapSettings = {
+                controls: {
+                    draggable: (($.browser.mobile) ? false : true),
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    streetViewControl: true,
+                    overviewMapControl: true
+                },
+                scrollwheel: false,
+                markers: mapMarkers,
+                latitude: initLatitude,
+                longitude: initLongitude,
+                zoom: 16
+            };
 
-                var map = $('#googlemaps').gMap(mapSettings),
-                    mapRef = $('#googlemaps').data('gMap.reference');
+            var map = $('#googlemaps').gMap(mapSettings),
+                mapRef = $('#googlemaps').data('gMap.reference');
 
-                // Styles from https://snazzymaps.com/
-                var styles = [{
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#e9e9e9"}, {"lightness": 17}]
-                }, {
-                    "featureType": "landscape",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#f5f5f5"}, {"lightness": 20}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"color": "#ffffff"}, {"lightness": 17}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{"color": "#ffffff"}, {"lightness": 29}, {"weight": 0.2}]
-                }, {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#ffffff"}, {"lightness": 18}]
-                }, {
-                    "featureType": "road.local",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#ffffff"}, {"lightness": 16}]
-                }, {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#f5f5f5"}, {"lightness": 21}]
-                }, {
-                    "featureType": "poi.park",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#dedede"}, {"lightness": 21}]
-                }, {
-                    "elementType": "labels.text.stroke",
-                    "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"lightness": 16}]
-                }, {
-                    "elementType": "labels.text.fill",
-                    "stylers": [{"saturation": 36}, {"color": "#333333"}, {"lightness": 40}]
-                }, {"elementType": "labels.icon", "stylers": [{"visibility": "off"}]}, {
-                    "featureType": "transit",
-                    "elementType": "geometry",
-                    "stylers": [{"color": "#f2f2f2"}, {"lightness": 19}]
-                }, {
-                    "featureType": "administrative",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"color": "#fefefe"}, {"lightness": 20}]
-                }, {
-                    "featureType": "administrative",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{"color": "#fefefe"}, {"lightness": 17}, {"weight": 1.2}]
-                }];
+            // Styles from https://snazzymaps.com/
+            var styles = [{
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{"color": "#e9e9e9"}, {"lightness": 17}]
+            }, {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [{"color": "#f5f5f5"}, {"lightness": 20}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#ffffff"}, {"lightness": 17}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#ffffff"}, {"lightness": 29}, {"weight": 0.2}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ffffff"}, {"lightness": 18}]
+            }, {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ffffff"}, {"lightness": 16}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{"color": "#f5f5f5"}, {"lightness": 21}]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{"color": "#dedede"}, {"lightness": 21}]
+            }, {
+                "elementType": "labels.text.stroke",
+                "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"lightness": 16}]
+            }, {
+                "elementType": "labels.text.fill",
+                "stylers": [{"saturation": 36}, {"color": "#333333"}, {"lightness": 40}]
+            }, {"elementType": "labels.icon", "stylers": [{"visibility": "off"}]}, {
+                "featureType": "transit",
+                "elementType": "geometry",
+                "stylers": [{"color": "#f2f2f2"}, {"lightness": 19}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#fefefe"}, {"lightness": 20}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#fefefe"}, {"lightness": 17}, {"weight": 1.2}]
+            }];
 
-                var styledMap = new google.maps.StyledMapType(styles, {
-                    name: 'Styled Map'
-                });
+            var styledMap = new google.maps.StyledMapType(styles, {
+                name: 'Styled Map'
+            });
 
-                mapRef.mapTypes.set('map_style', styledMap);
-                mapRef.setMapTypeId('map_style');
+            mapRef.mapTypes.set('map_style', styledMap);
+            mapRef.setMapTypeId('map_style');
 
-                // Change text-center Position
-                if ($(window).width() > 767) {
-                    if ($('html[dir="rtl"]').get(0)) {
-                        mapRef.panBy(250, 0);
-                    } else {
-                        mapRef.panBy(-250, 0);
-                    }
+            // Change text-center Position
+            if ($(window).width() > 767) {
+                if ($('html[dir="rtl"]').get(0)) {
+                    mapRef.panBy(250, 0);
+                } else {
+                    mapRef.panBy(-250, 0);
                 }
             }
+        }
 
-            // Initialize Google Maps when element enter on browser view
-            theme.fn.intObs('.google-map', 'initializeGoogleMaps()', {});
+        // Initialize Google Maps when element enter on browser view
+        theme.fn.intObs('.google-map', 'initializeGoogleMaps()', {});
 
-            // Map text-center At
-            var mapCenterAt = function (options, e) {
-                e.preventDefault();
-                $('#googlemaps').gMap("centerAt", options);
-            }
+        // Map text-center At
+        var mapCenterAt = function (options, e) {
+            e.preventDefault();
+            $('#googlemaps').gMap("centerAt", options);
+        }
 
-        </script>
-        <script>
-        if($(this).is(':checked')){
+    </script>
+    <script>
+        if ($(this).is(':checked')) {
+            $("#prestador").show()
+        } else {
+            $("#prestador").hide()
+        }
+        $("#es_prestador").click(function () {
+            if ($(this).is(':checked')) {
                 $("#prestador").show()
-            }
-            else{
-                $("#prestador").hide()
-            }
-        $("#es_prestador").click(function(){
-            if($(this).is(':checked')){
-                $("#prestador").show()
-            }
-            else{
+            } else {
                 $("#prestador").hide()
             }
         })
     </script>
-        <script>
-        $("#regis").attr('disabled','disabled')
-        $("#password1").keyup(function (){
-            if($("#password1").val()===$("#password2").val()){
+    <script>
+        $("#regis").attr('disabled', 'disabled')
+        $("#password1").keyup(function () {
+            if ($("#password1").val() === $("#password2").val()) {
                 $("#regis").removeAttr('disabled')
                 $("#password1").attr('is-invalid')
                 $("#password2").attr('is-invalid')
             }
         })
-        $("#password2").keyup(function (){
-            if($("#password1").val()===$("#password2").val()){
+        $("#password2").keyup(function () {
+            if ($("#password1").val() === $("#password2").val()) {
                 $("#regis").removeAttr('disabled')
                 $("#password1").attr('is-invalid')
                 $("#password2").attr('is-invalid')
             }
         })
-        </script>
-    {% endblock %}
-    {% block style %}{% endblock %}
+    </script>
+{% endblock %}
+{% block style %}{% endblock %}
 </div>
 </body>
 </html>
