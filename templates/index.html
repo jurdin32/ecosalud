@@ -872,19 +872,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="/session/" id="frmSignIn" method="post" class="needs-validation" novalidate="novalidate">
+                    <form action="/session/" method="post">
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label text-color-dark text-3">Correo Electrónico <span
                                         class="text-color-danger">*</span></label>
-                                <input type="text" value="" class="form-control form-control-lg text-4" required="">
+                                <input type="email" name="user" value="" class="form-control form-control-lg text-4" required="">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label text-color-dark text-3">Password <span
                                         class="text-color-danger">*</span></label>
-                                <input type="password" value="" class="form-control form-control-lg text-4" required="">
+                                <input type="password" name="passwd" value="" class="form-control form-control-lg text-4" required="">
                             </div>
                         </div>
                         <div class="row justify-content-between">
@@ -895,8 +895,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col">
-                                <button type="submit"
-                                        class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
+                                <button type="submit"class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
                                         data-loading-text="Loading...">Iniciar Sesión
                                 </button>
                             </div>
