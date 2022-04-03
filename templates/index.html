@@ -112,12 +112,24 @@
                                                     Contacto
                                                 </a>
                                             </li>
+                                            {% if request.user.username %}
                                             <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    {{ request.user.username }}
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/myaccount/" class="dropdown-item">Mi Cuenta</a></li>
+                                                    <li><a href="/logout/" class="dropdown-item">Cerrar Sesión</a></li>
+                                                </ul>
+                                            </li>
+                                            {% else %}
+                                                <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle" data-bs-target="#modal-sesion" href="#"
                                                    data-bs-toggle="modal">
                                                     Iniciar Sesión
                                                 </a>
                                             </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -872,7 +884,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="/session/" method="post">
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label text-color-dark text-3">Correo Electrónico <span
