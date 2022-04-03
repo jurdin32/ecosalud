@@ -52,6 +52,7 @@ class DetalleSede(models.Model):
     horario_viernes=models.CharField(max_length=60,null=True,blank=True)
     horario_sabado=models.CharField(max_length=60,null=True,blank=True)
     horario_domingo=models.CharField(max_length=60,null=True,blank=True)
+    es_usada=models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre
