@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from Inicio.views import *
+from Migraciones.views import migracion_dep, migracion_prestadores, migracion_det_prestador
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,11 @@ urlpatterns = [
     path('logout/',logoutView,name='logout'),
 
 
-    path('myaccount/',micuenta,name='myaccount')
+    path('myaccount/',micuenta,name='myaccount'),
+
+    path('migracion/dep',migracion_dep),
+    path('migracion/pres',migracion_prestadores),
+    path('migracion/pres/det/',migracion_det_prestador)
+
+
 ]
