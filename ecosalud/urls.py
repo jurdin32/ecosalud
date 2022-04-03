@@ -21,5 +21,10 @@ from Inicio.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='inicio'),
-    path('success/',registro,name='registro')
+    path('success/',registro,name='registro'),
+    path('login/',loginView,name='login'),
+    path('logout/',logoutView,name='logout'),
+
+
+    path('myaccount/',micuenta,name='myaccount')
 ]
