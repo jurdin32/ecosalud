@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 {% endblock %}
 {% block header %}
-    <header id="header" class="header-effect-shrink"
-            data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+    <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
         <div class="header-body">
             <div class="header-container container">
                 <div class="header-row">
@@ -38,7 +37,7 @@
                                                         {{ request.user.username }}
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="/myaccount/" class="dropdown-item">Mi Cuenta</a>
+                                                        <li><a href="/myaccount/?iniciarSesion=ok" class="dropdown-item">Mi Cuenta</a>
                                                         </li>
                                                         <li><a href="/logout/" class="dropdown-item">Cerrar Sesión</a>
                                                         </li>
@@ -70,26 +69,23 @@
 {% endblock %}
 {% block main %}
     <div id="examples" class="container py-2">
-
         <div class="row">
-            <div class="col-lg-3 order-2 order-lg-1">
-
+            <div class="col-lg-2 order-2 order-lg-1">
                 <aside class="sidebar mt-2 mb-5">
                     <h5 class="font-weight-semi-bold">Mis datos</h5>
                     <ul class="nav nav-list flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#iniciarSesion" data-bs-toggle="tab" data-hash=""
-                               data-hash-offset="0" data-hash-offset-lg="120" data-hash-delay="500">Iniciar Sesión</a>
+                            <a class="nav-link {% if request.GET.iniciarSesion %}active{% endif %}" href="?iniciarSesion=ok">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#servicios" data-bs-toggle="tab" data-hash=""
-                               data-hash-offset="0" data-hash-offset-lg="120" data-hash-delay="500">Mis servicios</a>
+                            <a class="nav-link {% if request.GET.servicios %}active{% endif %}" href="?servicios=ok">Mis servicios</a>
                         </li>
                     </ul>
                 </aside>
             </div>
-            <div class="col-lg-9 order-1 order-lg-2">
-                <div class="tab-pane tab-pane-navigation active" id="iniciarSesion">
+            <div class="col-lg-10 order-1 order-lg-2">
+                {% if request.GET.iniciarSesion %}
+                     <div class="tab-pane tab-pane-navigation active" id="iniciarSesion">
                     <h4 class="mb-3">Datos del Inicio de la Sesión</h4>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -163,7 +159,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane tab-pane-navigation" id="servicios">
+                {% elif request.GET.servicios %}
+                    <div class="tab-pane tab-pane-navigation active" id="servicios">
                     <h4 class="mb-3">Mis Servicios</h4>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -171,6 +168,7 @@
                                 <table class="table table-bordered" id="tabla">
                                     <thead>
                                     <th>NIT</th>
+                                    <th>Código de habilitación</th>
                                     <th>Nombre</th>
                                     <th>Dirección</th>
                                     <th>Opciones</th>
@@ -179,8 +177,9 @@
                                     {% for ip in ips %}
                                         <tr>
                                             <td>{{ ip.sede.nit }}</td>
-                                            <td>{{ ip.sede }}</td>
-                                            <td>{{ ip }}</td>
+                                            <td>{{ ip.codigo_habilitacion }}-{{ ip.numero_sede }}</td>
+                                            <td style="width: 25%">{{ ip.sede }}</td>
+                                            <td style="width: 25%">{{ ip.direccion }}</td>
                                             <td style="text-align: center">
                                                 {% if ip.es_usada %}
                                                     <a href="" class="btn btn-success" title="Activo"><i
@@ -202,6 +201,9 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
+
+
             </div>
         </div>
 

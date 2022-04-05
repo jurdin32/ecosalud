@@ -27,7 +27,7 @@ def index(request):
             enviarEmail(destinatarios=[user.email], asunto="Gracias por tu registro", mensaje=mensaje, is_html=True)
             return HttpResponseRedirect("/success/?user="+user.username)
     if request.user.is_authenticated:
-        return HttpResponseRedirect("/myaccount/")
+        return HttpResponseRedirect("/myaccount/?iniciarSesion=ok")
     return render(request,'index.html')
 
 def loginView(request):
@@ -76,6 +76,6 @@ def micuenta(request):
         user.save()
         return HttpResponseRedirect('/')
     contexto={
-        'ips':DetalleSede.objects.filter(sede__nit=request.user.first_name)
+        'ips':DetalleSede.objects.filter(sede__nit=request.user.first_name).order_by('numero_sede')
     }
     return render(request,'micuenta.html',contexto)
