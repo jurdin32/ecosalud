@@ -182,9 +182,9 @@
                                             <td style="width: 25%">{{ ip.direccion }}</td>
                                             <td style="text-align: center">
                                                 {% if ip.es_usada %}
-                                                    <a href="" class="btn btn-success" title="Activo"><i
-                                                            class="icon icon-check"></i></a>
-                                                    <a href="" class="btn btn-danger" title="Desactivar"><i
+                                                    <button href="" class="btn btn-success" disabled="" title="Activo"><i
+                                                            class="icon icon-check"></i></button>
+                                                    <a href="?disable={{ ip.id }}" class="btn btn-danger" title="Desactivar"><i
                                                             class="icon icon-close"></i></a>
                                                 {% else %}
                                                     <a href="?servicios={{ ip.id }}" class="btn btn-primary" title="Activar"><i
