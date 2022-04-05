@@ -78,7 +78,7 @@
                             <a class="nav-link {% if request.GET.iniciarSesion %}active{% endif %}" href="?iniciarSesion=ok">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.GET.servicios %}active{% endif %}" href="?servicios=ok">Mis servicios</a>
+                            <a class="nav-link {% if request.GET.servicios %}active{% endif %}" href="?servicios=ok">Mis Sedes</a>
                         </li>
                     </ul>
                 </aside>
@@ -190,11 +190,9 @@
                                                     <a href="?servicios={{ ip.id }}" class="btn btn-primary" title="Activar"><i
                                                             class="icon icon-check"></i></a>
                                                 {% endif %}
-
                                             </td>
                                         </tr>
                                     {% endfor %}
-
                                     </tbody>
                                 </table>
                             </div>
@@ -202,8 +200,6 @@
                     </div>
                 </div>
                 {% endif %}
-
-
             </div>
         </div>
 
