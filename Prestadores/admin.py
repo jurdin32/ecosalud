@@ -34,6 +34,7 @@ class modelo(admin.ModelAdmin):
     list_display = Attr(SedesPrestador)
     list_display_links = Attr(SedesPrestador)
     inlines = [SedesInline]
+    search_fields = ['nombre_prestador']
 
 
 @admin.register(DetalleSede)

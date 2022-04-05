@@ -32,6 +32,7 @@ urlpatterns = [
     # path('migracion/dep',migracion_dep),
     # path('migracion/pres',migracion_prestadores),
     # path('migracion/pres/det/',migracion_det_prestador)
-
-
+    #path('migracion/dep',migracion_dep),
+    #path('migracion/pres',migracion_prestadores),
+    #path('migracion/pres/det/',migracion_det_prestador)
 ]
