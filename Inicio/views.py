@@ -83,6 +83,14 @@ def micuenta(request):
             return HttpResponseRedirect("/myaccount/?servicios=ok")
         except:
             pass
+    if request.GET.get('disable'):
+        try:
+            sede=DetalleSede.objects.get(id=request.GET.get('disable'))
+            sede.es_usada=False
+            sede.save()
+            return HttpResponseRedirect("/myaccount/?servicios=ok")
+        except:
+            pass
     contexto={
         'ips':DetalleSede.objects.filter(sede__nit=request.user.first_name).order_by('numero_sede')
     }
