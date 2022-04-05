@@ -26,8 +26,8 @@ def index(request):
             mensaje = render_to_string('confirmacion.html', {'usuario': str(user.email)})
             enviarEmail(destinatarios=[user.email], asunto="Gracias por tu registro", mensaje=mensaje, is_html=True)
             return HttpResponseRedirect("/success/?user="+user.username)
-    if request.user.is_authenticated:
-        return HttpResponseRedirect("/myaccount/?iniciarSesion=ok")
+    # if request.user.is_authenticated:
+    #     return HttpResponseRedirect("/myaccount/?iniciarSesion=ok")
     return render(request,'index.html')
 
 def loginView(request):
@@ -35,7 +35,7 @@ def loginView(request):
         user = authenticate(username=request.POST.get('user'), password=request.POST.get('passwd'),is_active=True)
         if user:
             login(request,user)
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/myaccount/?iniciarSesion=ok")
         else:
             return HttpResponseRedirect("/")
     else:
