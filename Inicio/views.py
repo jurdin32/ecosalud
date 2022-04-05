@@ -74,7 +74,15 @@ def micuenta(request):
         user.email=request.POST.get('email')
         user.username=request.POST.get('email')
         user.save()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect("/myaccount/?iniciarSesion=ok")
+    if request.GET.get('servicios'):
+        try:
+            sede=DetalleSede.objects.get(id=request.GET.get('servicios'))
+            sede.es_usada=True
+            sede.save()
+            return HttpResponseRedirect("/myaccount/?servicios=ok")
+        except:
+            pass
     contexto={
         'ips':DetalleSede.objects.filter(sede__nit=request.user.first_name).order_by('numero_sede')
     }
