@@ -6,11 +6,11 @@
 {% endblock %}
 {% block header %}
     <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
-        <div class="header-body">
+        <div class="header-body" style="background-color: #0a0a0a; color: white">
             <div class="header-container container">
                 <div class="header-row">
                     <div class="header-column">
-                        <div class="header-row">
+                        <div class="header-row header-nav-features-light">
                             <div class="header-logo">
                                 <a href="/" data-hash data-hash-offset="0">
                                     <img alt="Porto" height="48" data-sticky-width="82" data-sticky-height="48"
@@ -27,13 +27,13 @@
                                         <ul class="nav nav-pills" id="mainNav">
                                             <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
-                                                   href="#iniciarSesion">
+                                                   href="#iniciarSesion" style="color: white">
                                                     Mis datos
                                                 </a>
                                             </li>
                                             {% if request.user.username %}
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <a class="dropdown-item dropdown-toggle" style="color: white" href="#">
                                                         {{ request.user.username }}
                                                     </a>
                                                     <ul class="dropdown-menu">
