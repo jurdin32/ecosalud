@@ -80,7 +80,7 @@ def micuenta(request):
             sede=DetalleSede.objects.get(id=request.GET.get('servicios'))
             sede.es_usada=True
             sede.save()
-            return HttpResponseRedirect("/myaccount/?servicios=ok")
+            return HttpResponseRedirect("/myaccount/?sedes=ok")
         except:
             pass
     if request.GET.get('disable'):
@@ -88,7 +88,7 @@ def micuenta(request):
             sede=DetalleSede.objects.get(id=request.GET.get('disable'))
             sede.es_usada=False
             sede.save()
-            return HttpResponseRedirect("/myaccount/?servicios=ok")
+            return HttpResponseRedirect("/myaccount/?sedes=ok")
         except:
             pass
     contexto={
