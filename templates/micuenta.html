@@ -84,7 +84,7 @@
                             <a class="nav-link {% if request.GET.iniciarSesion %}active{% endif %}" href="?iniciarSesion=ok">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.GET.servicios %}active{% endif %}" href="?servicios=ok">Mis Sedes</a>
+                            <a class="nav-link {% if request.GET.sedes %}active{% endif %}" href="?sedes=ok">Mis Sedes</a>
                         </li>
                     </ul>
                 </aside>
@@ -165,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-                {% elif request.GET.servicios %}
+                {% elif request.GET.sedes %}
                     <div class="tab-pane tab-pane-navigation active" id="servicios">
 {#                    <h4 class="mb-3">Mis Servicios</h4>#}
                     <div class="card mb-4">
