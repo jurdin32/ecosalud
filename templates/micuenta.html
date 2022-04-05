@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 {% endblock %}
 {% block header %}
-    <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+    <header id="header" class="header-effect-shrink"
+            data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
         <div class="header-body" style="background-color: #0a0a0a; color: white">
             <div class="header-container container">
                 <div class="header-row">
@@ -25,7 +26,7 @@
                                 <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
                                     <nav class="collapse">
                                         <ul class="nav nav-pills" id="mainNav">
-                                        <li class="dropdown">
+                                            <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle" data-hash data-hash-offset="0"
                                                    href="/" style="color: white">
                                                     Inicio
@@ -39,11 +40,13 @@
                                             </li>
                                             {% if request.user.username %}
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" style="color: white" href="#">
+                                                    <a class="dropdown-item dropdown-toggle" style="color: white"
+                                                       href="#">
                                                         {{ request.user.username }}
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="/myaccount/?iniciarSesion=ok" class="dropdown-item">Mi Cuenta</a>
+                                                        <li><a href="/myaccount/?iniciarSesion=ok"
+                                                               class="dropdown-item">Mi Cuenta</a>
                                                         </li>
                                                         <li><a href="/logout/" class="dropdown-item">Cerrar Sesión</a>
                                                         </li>
@@ -81,135 +84,223 @@
                     <h5 class="font-weight-semi-bold">Mis datos</h5>
                     <ul class="nav nav-list flex-column">
                         <li class="nav-item">
-                            <a class="nav-link {% if request.GET.iniciarSesion %}active{% endif %}" href="?iniciarSesion=ok">Iniciar Sesión</a>
+                            <a class="nav-link {% if request.GET.iniciarSesion %}active{% endif %}"
+                               href="?iniciarSesion=ok">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.GET.sedes %}active{% endif %}" href="?sedes=ok">Mis Sedes</a>
+                            <a class="nav-link {% if request.GET.sedes %}active{% endif %}" href="?sedes=ok">Mis
+                                Sedes</a>
                         </li>
                     </ul>
                 </aside>
             </div>
             <div class="col-lg-10 order-1 order-lg-2">
                 {% if request.GET.iniciarSesion %}
-                     <div class="tab-pane tab-pane-navigation active" id="iniciarSesion">
-{#                    <h4 class="mb-3">Datos del Inicio de la Sesión</h4>#}
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <form class="form-with-icons" action="" method="POST">
-                                        <div class="row">
-                                            <div class="form-group col-lg-12">
-                                                <label class="form-label mb-1 text-2">Email</label>
-                                                <div class="position-relative">
-                                                    <i class="icons icon-envelope text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
-                                                    <input type="email" value="{{ request.user.email }}"
-                                                           data-msg-required="Por favor ingrese su email."
-                                                           data-msg-email="Ingrese un email válido."
-                                                           maxlength="100" class="form-control text-3 h-auto py-2"
-                                                           name="email" required="">
+                    <div class="tab-pane tab-pane-navigation active" id="iniciarSesion">
+                        {#                    <h4 class="mb-3">Datos del Inicio de la Sesión</h4>#}
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <form class="form-with-icons" action="" method="POST">
+                                            <div class="row">
+                                                <div class="form-group col-lg-12">
+                                                    <label class="form-label mb-1 text-2">Email</label>
+                                                    <div class="position-relative">
+                                                        <i class="icons icon-envelope text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                                                        <input type="email" value="{{ request.user.email }}"
+                                                               data-msg-required="Por favor ingrese su email."
+                                                               data-msg-email="Ingrese un email válido."
+                                                               maxlength="100" class="form-control text-3 h-auto py-2"
+                                                               name="email" required="">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-12">
-                                                <label class="form-label mb-1 text-2">NIT</label>
-                                                <div class="position-relative">
-                                                    <i class="icons icon-anchor text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
-                                                    <input type="text" value="{{ request.user.first_name }}"
-                                                           data-msg-required="Ingrese su NIC."
-                                                           maxlength="100" class="form-control text-3 h-auto py-2"
-                                                           name="nic" required="" readonly="readonly">
+                                            <div class="row">
+                                                <div class="form-group col-lg-12">
+                                                    <label class="form-label mb-1 text-2">NIT</label>
+                                                    <div class="position-relative">
+                                                        <i class="icons icon-anchor text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                                                        <input type="text" value="{{ request.user.first_name }}"
+                                                               data-msg-required="Ingrese su NIC."
+                                                               maxlength="100" class="form-control text-3 h-auto py-2"
+                                                               name="nic" required="" readonly="readonly">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col">
-                                                <label class="form-label">Password</label>
-                                                <div class="position-relative">
-                                                    <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
-                                                    <input type="password"
-                                                           maxlength="100" class="form-control text-3 h-auto py-2"
-                                                           data-msg-required="Contraseñas no coinciden."
-                                                           data-msg-password="Contraseñas no coinciden."
-                                                           name="password1" id="password1"
-                                                    >
+                                            <div class="row">
+                                                <div class="form-group col">
+                                                    <label class="form-label">Password</label>
+                                                    <div class="position-relative">
+                                                        <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
+                                                        <input type="password"
+                                                               maxlength="100" class="form-control text-3 h-auto py-2"
+                                                               data-msg-required="Contraseñas no coinciden."
+                                                               data-msg-password="Contraseñas no coinciden."
+                                                               name="password1" id="password1"
+                                                        >
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col">
-                                                <label class="form-label">Confirmar Password</label>
-                                                <div class="position-relative">
-                                                    <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
-                                                    <input type="password"
-                                                           maxlength="100" class="form-control text-3 h-auto py-2"
-                                                           name="password2" id="password2"
-                                                           data-msg-required="Contraseñas no coinciden."
-                                                           data-msg-password="Contraseñas no coinciden."
-                                                    >
+                                            <div class="row">
+                                                <div class="form-group col">
+                                                    <label class="form-label">Confirmar Password</label>
+                                                    <div class="position-relative">
+                                                        <i class="icons icon-lock text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>
+                                                        <input type="password"
+                                                               maxlength="100" class="form-control text-3 h-auto py-2"
+                                                               name="password2" id="password2"
+                                                               data-msg-required="Contraseñas no coinciden."
+                                                               data-msg-password="Contraseñas no coinciden."
+                                                        >
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <button type="submit" id="regis" class="btn btn-primary mb-2">Registrar
-                                                    Cambios
-                                                </button>
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <button type="submit" id="regis" class="btn btn-primary mb-2">
+                                                        Registrar
+                                                        Cambios
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        {% csrf_token %}
-                                    </form>
+                                            {% csrf_token %}
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {% elif request.GET.sedes %}
                     <div class="tab-pane tab-pane-navigation active" id="servicios">
-{#                    <h4 class="mb-3">Mis Servicios</h4>#}
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <table class="table table-bordered" id="tabla">
-                                    <thead>
-                                    <th>NIT</th>
-                                    <th>Código de habilitación</th>
-                                    <th>Nombre</th>
-                                    <th>Dirección</th>
-                                    <th>Opciones</th>
-                                    </thead>
-                                    <tbody>
-                                    {% for ip in ips %}
-                                        <tr>
-                                            <td>{{ ip.sede.nit }}</td>
-                                            <td>{{ ip.codigo_habilitacion }}-{{ ip.numero_sede }}</td>
-                                            <td style="width: 25%">{{ ip.sede }}</td>
-                                            <td style="width: 25%">{{ ip.direccion }}</td>
-                                            <td style="text-align: center">
-                                                {% if ip.es_usada %}
-                                                    <button href="" class="btn btn-success" disabled="" title="Activo"><i
-                                                            class="icon icon-check"></i></button>
-                                                    <a href="?disable={{ ip.id }}" class="btn btn-danger" title="Desactivar"><i
-                                                            class="icon icon-close"></i></a>
-                                                {% else %}
-                                                    <a href="?servicios={{ ip.id }}" class="btn btn-primary" title="Activar"><i
-                                                            class="icon icon-check"></i></a>
-                                                {% endif %}
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
+                        {#                    <h4 class="mb-3">Mis Servicios</h4>#}
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <table class="table table-bordered text-1 table-striped" id="tabla">
+                                        <thead class="bg-primary text-color-white">
+                                        <th class="tex-1">NIT</th>
+                                        <th class="text-1">Código de habilitación</th>
+                                        <th class="text-1">Nombre</th>
+                                        <th class="text-1">Dirección</th>
+                                        <th class="text-1">Opciones</th>
+                                        </thead>
+                                        <tbody>
+                                        {% for ip in ips %}
+                                            <tr class="text-1">
+                                                <td>{{ ip.sede.nit }}</td>
+                                                <td>{{ ip.codigo_habilitacion }}-{{ ip.numero_sede }}</td>
+                                                <td style="width: 25%">{{ ip.sede }}</td>
+                                                <td style="width: 25%">{{ ip.direccion }}</td>
+                                                <td>
+                                                    {% if ip.es_usada %}
+                                                        <a href="" class="btn text-color-success btn-circle"
+                                                           disabled=""
+                                                           title="Activo"><i class="icon icon-check"></i></a>
+                                                        <a href="?disable={{ ip.id }}"
+                                                           class="btn text-color-danger btn-circle" title="Desactivar"><i class="icon icon-close"></i></a>
+                                                    {% else %}
+                                                        <a href="?servicios={{ ip.id }}"
+                                                           class="btn text-color-primary btn-circle" title="Activar"><i class="icon icon-check"></i></a>
+                                                    {% endif %}
+                                                    <a href="#" data-bs-target="#modal-edit" data-bs-toggle="modal"
+                                                       class="btn text-color-default btn-circle"
+                                                       title="Ver Información Completa"><i class="icon icon-book-open"></i></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
             </div>
         </div>
-
     </div>
+
+    <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="defaultModalLabel" aria-hidden="true"
+         style="display: none;">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Información de la Sede</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Nombre del Prestador <span class="text-color-danger">*</span></label>
+                                <input type="text" name="nombreprestador" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Nombre <span class="text-color-danger">*</span></label>
+                                <input type="text" name="nombre" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Gerente <span class="text-color-danger">*</span></label>
+                                <input type="text" name="nombregerente" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Email <span class="text-color-danger">*</span></label>
+                                <input type="email" name="email" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">NIT <span class="text-color-danger">*</span></label>
+                                <input type="text" name="nit" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Código de Habilitación <span class="text-color-danger">*</span></label>
+                                <input type="text" name="codigo" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Nro. de Sede <span class="text-color-danger">*</span></label>
+                                <input type="text" name="nrosede" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Clase Persona<span class="text-color-danger">*</span></label>
+                                <input type="text" name="clasepersona" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Clase Prestador<span class="text-color-danger">*</span></label>
+                                <input type="text" name="claseprestador" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Naturaleza <span class="text-color-danger">*</span></label>
+                                <input type="text" name="naturaleza" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Municipio <span class="text-color-danger">*</span></label>
+                                <input type="text" name="municipio" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Dirección <span class="text-color-danger">*</span></label>
+                                <input type="text" name="direccion" value="" class="form-control form-control text-1" required="">
+                            </div>
+                            <div class="form-group col">
+                                <label class="form-label text-color-dark text-1">Teléfono <span class="text-color-danger">*</span></label>
+                                <input type="text" name="telefono" value="" class="form-control form-control text-1" required="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 {% block script %}
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
