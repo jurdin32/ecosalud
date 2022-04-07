@@ -41,3 +41,4 @@ class modelo(admin.ModelAdmin):
 class modelo(admin.ModelAdmin):
     list_display = Attr(DetalleSede)
     list_display_links = Attr(DetalleSede)
+    search_fields = ['nombre']

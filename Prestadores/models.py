@@ -22,12 +22,12 @@ class Municipios(models.Model):
 
 class SedesPrestador(models.Model):
     municipio=models.ForeignKey(Municipios,on_delete=models.CASCADE)
-    nombre_prestador=models.CharField(max_length=60,null=True,blank=True)
-    nit=models.CharField(max_length=10,null=True,blank=True)
+    nombre_prestador=models.TextField(null=True,blank=True)
+    nit=models.CharField(max_length=20,null=True,blank=True)
     dv =models.CharField(max_length=5, null=True,blank=True)
-    clase_persona=models.CharField(max_length=60,null=True,blank=True)
-    naturaleza=models.CharField(max_length=60,null=True,blank=True)
-    clase_prestador=models.CharField(max_length=60,null=True,blank=True)
+    clase_persona=models.CharField(max_length=100,null=True,blank=True)
+    naturaleza=models.CharField(max_length=100,null=True,blank=True)
+    clase_prestador=models.CharField(max_length=100,null=True,blank=True)
 
     def __str__(self):
         return self.nombre_prestador
@@ -37,12 +37,12 @@ class SedesPrestador(models.Model):
 
 class DetalleSede(models.Model):
     sede=models.ForeignKey(SedesPrestador,on_delete=models.CASCADE)
-    codigo_habilitacion = models.CharField(max_length=10,null=True,blank=True)
+    codigo_habilitacion = models.CharField(max_length=100,null=True,blank=True)
     numero_sede=models.CharField(max_length=2,null=True,blank=True)
     nombre=models.TextField(null=True,blank=True)
     gerente=models.CharField(max_length=60,null=True,blank=True)
-    direccion=models.CharField(max_length=60,null=True,blank=True)
-    telefono=models.CharField(max_length=10,null=True,blank=True)
+    direccion=models.TextField(null=True,blank=True)
+    telefono=models.CharField(max_length=100,null=True,blank=True)
     email=models.CharField(max_length=130,null=True,blank=True)
     fecha_apertura=models.CharField(max_length=60,null=True,blank=True)
     horario_lunes=models.CharField(max_length=60,null=True,blank=True)
