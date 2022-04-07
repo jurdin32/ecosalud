@@ -87,6 +87,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 #STATIC_ROOT='/mnt/07EBF45679F193CD/var/www/ecosalud/static'
+
 STATICFILES_DIRS=[
     'static',
 ]
