@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -65,6 +66,18 @@ def registro(request):
     return render(request,'registro_exitoso.html',contexto)
 
 def forgot_password(request):
+    if request.POST:
+        print(request.POST)
+        try:
+            usuario=User.objects.get(email=request.POST.get('email'))
+            messages.add_message(request, messages.SUCCESS,"Se ha enviado un email con los pasos a seguir para recuperar la contraseña..!")
+            mensaje = render_to_string('forgot.html', {'usuario': str(usuario.email)})
+            enviarEmail(destinatarios=[usuario.email], asunto="Gracias por tu registro", mensaje=mensaje, is_html=True)
+        except:
+            messages.add_message(request,messages.ERROR, "El Email no esta registrado en nuestra base de datos, reintente..!")
+    if request.GET.get('user'):
+        return render(request,'recovery_password.html')
+
     return render(request,'forgot_password.html',)
 
 
