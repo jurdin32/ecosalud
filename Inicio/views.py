@@ -59,7 +59,7 @@ def registro(request):
         usuario = User.objects.get(username=request.GET.get('activate'))
         usuario.is_active=True
         usuario.save()
-        return HttpResponse("ok")
+        return render(request,'bienvenido.html')
     contexto={
         'usuario':usuario
     }
