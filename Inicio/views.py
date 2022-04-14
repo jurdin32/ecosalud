@@ -66,7 +66,7 @@ def registro(request):
     return render(request,'registro_exitoso.html',contexto)
 
 def forgot_password(request):
-    if request.POST:
+    if request.POST and not request.GET.get('user'):
         print(request.POST)
         try:
             usuario=User.objects.get(email=request.POST.get('email'))
