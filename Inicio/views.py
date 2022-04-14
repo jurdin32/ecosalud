@@ -77,9 +77,9 @@ def forgot_password(request):
             messages.add_message(request,messages.ERROR, "El Email no esta registrado en nuestra base de datos, reintente..!")
     if request.GET.get('user'):
         if request.POST:
-            usuario = User.objects.get(email=request.POST.get('email'))
-            if request.GET.get('password1') == request.GET.get('password2'):
-                usuario.set_password(request.GET.get('password1'))
+            usuario = User.objects.get(username=request.GET.get('user'))
+            if request.GET.get('password1') == request.POST.get('password2'):
+                usuario.set_password(request.POST.get('password1'))
                 usuario.save()
                 messages.add_message(request, messages.SUCCESS,"Su contraseña se recuperó con exito..!")
             else:

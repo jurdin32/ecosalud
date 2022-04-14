@@ -7,7 +7,7 @@ datos_email={
     'puerto':587,
     'use_tls':True,
     'usuario':'urdin-23@live.com',
-    'password':'jeug1987*',
+    'password':'Urdin32*',
 }
 
 POSTGRES={
