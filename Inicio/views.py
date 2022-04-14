@@ -78,7 +78,7 @@ def forgot_password(request):
     if request.GET.get('user'):
         if request.POST:
             usuario = User.objects.get(username=request.GET.get('user'))
-            if request.GET.get('password1') == request.POST.get('password2'):
+            if request.POST.get('password1') == request.POST.get('password2'):
                 usuario.set_password(request.POST.get('password1'))
                 usuario.save()
                 messages.add_message(request, messages.SUCCESS,"Su contraseña se recuperó con exito..!")
