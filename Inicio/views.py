@@ -64,6 +64,10 @@ def registro(request):
     }
     return render(request,'registro_exitoso.html',contexto)
 
+def forgot_password(request):
+    return render(request,'forgot_password.html',)
+
+
 @login_required(login_url="/")
 def micuenta(request):
     if request.POST:
